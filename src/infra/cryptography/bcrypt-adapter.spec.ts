@@ -7,10 +7,15 @@ jest.mock('bcrypt', () => ({
   }
 }))
 
+const salt = 12
+const makeSut = (): BcryptAdapter => {
+  const bcryptAdapter = new BcryptAdapter(salt)
+  return bcryptAdapter
+}
+
 describe('Bcrypt Adapter', () => {
   test('Should calll bcrypt with correct values', async () => {
-    const salt = 12
-    const sut = new BcryptAdapter(salt)
+    const sut = makeSut()
     const hashSpy = jest.spyOn(bcrypt, 'hash')
     await sut.encrypt('any_value')
     expect(hashSpy).toHaveBeenCalledWith('any_value', salt)
@@ -18,9 +23,16 @@ describe('Bcrypt Adapter', () => {
 })
 
 describe('Bcrypt Adapter', () => {
+  test('Should return a hash on success', async () => {
+    const sut = makeSut()
+    const hash = await sut.encrypt('any_value')
+    expect(hash).toBe('hash')
+  })
+})
+
+describe('Bcrypt Adapter', () => {
   test('Should calll bcrypt with correct values', async () => {
-    const salt = 12
-    const sut = new BcryptAdapter(salt)
+    const sut = makeSut()
     const hash = await sut.encrypt('any_value')
     expect(hash).toBe('hash')
   })
