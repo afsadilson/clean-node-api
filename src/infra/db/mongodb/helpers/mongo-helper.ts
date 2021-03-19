@@ -10,7 +10,7 @@ export const MongoHelper = {
     })
   },
 
-  getConnection (name: string): Collection {
+  getCollection (name: string): Collection {
     return this.client.db().collection(name)
   },
 
