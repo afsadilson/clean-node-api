@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/afsadilson/clean-node-api.svg?branch=master)](https://travis-ci.com/afsadilson/clean-node-api)
+[![Coverage Status](https://coveralls.io/repos/github/afsadilson/clean-node-api/badge.svg)](https://coveralls.io/github/afsadilson/clean-node-api)
+
 # **Clean Node API**
 
 ## [**Link para o curso completo**](https://www.udemy.com/course/tdd-com-mango)
