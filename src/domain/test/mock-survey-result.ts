@@ -2,17 +2,17 @@ import { SaveSurveyResultParams } from '@/domain/usecases/survey-result/save-sur
 import { SurveyResultModel } from '@/domain/models/survey-result'
 
 export const mockSurveyResultModel = (): SurveyResultModel => ({
-  surveyId: 'any_survey_id',
+  surveyId: 'any_id',
   question: 'any_question',
   answers: [{
     answer: 'any_answer',
-    count: 1,
-    percent: 45
+    count: 0,
+    percent: 0
   }, {
     answer: 'other_answer',
-    image: 'image.jpg',
-    count: 11,
-    percent: 55
+    image: 'any_image',
+    count: 0,
+    percent: 0
   }],
   date: new Date()
 })
