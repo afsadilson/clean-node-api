@@ -52,9 +52,7 @@ describe('Survey Routes', () => {
         })
         .expect(403)
     })
-  })
 
-  describe('PUT /surveys/:surveyId/results', () => {
     test('Should return 200 on save survey result with accessToken', async () => {
       const accessToken = await makeAccessToken()
       const res = await surveyCollection.insertOne({
@@ -75,6 +73,14 @@ describe('Survey Routes', () => {
           answer: 'Answer 1'
         })
         .expect(200)
+    })
+  })
+
+  describe('GET /surveys/:surveyId/results', () => {
+    test('Should return 403 on load survey result without accessToken', async () => {
+      await request(app)
+        .get('/api/surveys/any_id/results')
+        .expect(403)
     })
   })
 })
